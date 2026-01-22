@@ -28,6 +28,14 @@ export default [
             name: 'LazyTooltip',
             index: '/LazyTooltipPage',
           },
+          {
+            name: 'table',
+            index: '/table',
+          },
+          {
+            name: 'form',
+            index: '/form',
+          },
         ],
       }
     },

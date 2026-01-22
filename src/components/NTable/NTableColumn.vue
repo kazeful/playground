@@ -1,24 +1,28 @@
 <script lang="jsx">
-function CustomTableColumn(props, { slots }) {
-  function RenderCustomTableColumn({ children, ...column }, slots) {
+function NTableColumn(props, { slots }) {
+  // 如果visible为false，则不渲染
+  if (props.visible === false)
+    return null
+
+  function RenderNTableColumn({ children, ...column }, slots) {
     return (
       <el-table-column
+        align="center"
         {...column}
-        align={column.align ?? 'center'}
       >
         {{
           default: (scope) => {
             if (children)
-              return children.map(child => RenderCustomTableColumn(child, slots))
-            if (column.render)
-              return column.render(scope)
+              return children.map(child => RenderNTableColumn(child, slots))
+            if (column.renderCell)
+              return column.renderCell(scope)
             if (slots[column.prop])
               return slots[column.prop](scope)
             return scope.row[column.prop]
           },
           header: (scope) => {
-            if (column.headerRender)
-              return column.headerRender(scope)
+            if (column.renderHeader)
+              return column.renderHeader(scope)
             if (slots[`${column.prop}Header`])
               return slots[`${column.prop}Header`](scope)
             return column.label
@@ -28,8 +32,8 @@ function CustomTableColumn(props, { slots }) {
     )
   }
 
-  return RenderCustomTableColumn(props, slots)
+  return RenderNTableColumn(props, slots)
 }
 
-export default CustomTableColumn
+export default NTableColumn
 </script>

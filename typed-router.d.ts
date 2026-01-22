@@ -21,7 +21,9 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...all]': RouteRecordInfo<'/[...all]', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     '/ChooseIconPage': RouteRecordInfo<'/ChooseIconPage', '/ChooseIconPage', Record<never, never>, Record<never, never>>,
+    '/form/': RouteRecordInfo<'/form/', '/form', Record<never, never>, Record<never, never>>,
     '/LazyTooltipPage': RouteRecordInfo<'/LazyTooltipPage', '/LazyTooltipPage', Record<never, never>, Record<never, never>>,
     '/ProgressPage': RouteRecordInfo<'/ProgressPage', '/ProgressPage', Record<never, never>, Record<never, never>>,
+    '/table/': RouteRecordInfo<'/table/', '/table', Record<never, never>, Record<never, never>>,
   }
 }
